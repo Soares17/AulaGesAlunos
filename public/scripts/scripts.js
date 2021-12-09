@@ -37,3 +37,20 @@ function getNavbar(){
         alert('Ocorreu um problema...')
     })
 }
+
+function getTipos(){
+    const tipo = document.getElementById('tipo')
+    fetch('http://localhost:3000/tipos')
+    .then(res => res.text())
+    .then((html)=>{
+        nbar.innerHTML += html
+    })
+    .catch(function(err){
+        alert('Ocorreu um problema...')
+    })
+}
+
+function initForm(){
+    getNavbar();
+    getTipos(); 
+}

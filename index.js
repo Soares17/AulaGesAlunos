@@ -31,6 +31,17 @@ app.get('/navbar',function(req, res) {
     res.sendFile(path.join(__dirname, './public/nav.html'));
 })
 
+app.get('/tipos', function(req, res) {
+    connection.query('SELECT * FROM tipos ', function(err, result) {
+        if (err) {
+            console.log('Erro: ' + err);
+            throw err;
+        }else{
+            console.log(result)
+            res.json(result);
+        }
+    })
+})
 
 const port = 3000;
 

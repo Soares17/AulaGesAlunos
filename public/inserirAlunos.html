@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles/inserir.css">
     <script src="scripts/scripts.js"></script>
 </head>
-<body onload="getNavbar()">
+<body onload="initForm()">
   <div id="nbar">
 
   </div>
@@ -48,17 +48,13 @@
           </div>
         </div>
         <div class="col-md-4">
-          <label for="validationCustom04" class="form-label">Turmas</label>
-          <select class="form-select" id="validationCustom04" required>
+          <label for="validationCustom04" class="form-label" >Turmas</label>
+          <select class="form-select" id="validationCustom04" required id="tipo">
             <option selected disabled value="">Escolha uma turma...</option>
-            <option>TIS1</option>
-            <option>TIS2</option>
-            <option>TIIGR1</option>
-            <option>TIIGR2</option>
           </select>
           <div class="invalid-feedback">
             Please select a valid state.
-          </div>
+        </div>
         </div>
         <div class="col-md-4">
           <label for="validationCustom05" class="form-label">Telemóvel</label>
@@ -77,7 +73,7 @@
           </div>
         </div>
 
-        <div class="col-12">
+        <div class="col-1">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
             <label class="form-check-label" for="invalidCheck">
