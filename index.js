@@ -5,42 +5,15 @@ const app = express();
 const connection = require('./public/scripts/dbconnection.js');
 app.use(express.static('./public'));
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ extended: false }));
 
+//rotas para os pedidos
+app.use('/', require('./routes/mainRoute'))
+app.use('/navbar', require('./routes/navbarRoute'))
+app.use('/tipos', require('./routes/tipoRoute'))
+app.use('/utilizador', require('./routes/utilizadorRoute'))
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, './public/index.html'));
-})
-
-app.get('/index.html', function(req, res) {
-    res.sendFile(path.join(__dirname, './public/index.html'));
-})
-
-app.get('/inserirAlunos.html', function(req, res) {
-    res.sendFile(path.join(__dirname, './public/inserirAlunos.html'));
-})
-
-app.get('/consultarAlunos.html', function(req, res) {
-    res.sendFile(path.join(__dirname, './public/consultarAlunos.html'));
-})
-
-app.get('/login.html', function(req, res) {
-    res.sendFile(path.join(__dirname, './public/login.html'));
-})
-
-app.get('/navbar',function(req, res) {
-    res.sendFile(path.join(__dirname, './public/nav.html'));
-})
-
-app.get('/tipos', function(req, res) {
-    connection.query('SELECT * FROM tipos ', function(err, result) {
-        if (err) {
-            console.log('Erro: ' + err);
-            throw err;
-        }else{
-            res.json(result);
-        }
-    })
-})
 
 const port = 3000;
 

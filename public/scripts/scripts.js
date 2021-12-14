@@ -65,7 +65,7 @@ function inserir(){
     let morada = document.getElementById('morada').value
     let telemovel = document.getElementById('telemovel').value
     let datanasc = document.getElementById('datanasc').value
-    let idtipo = document.getElementById('idtipo').value
+    let tipo = document.getElementById('tipo').value
 
    //criar um objeto com os valores
    let objeto ={
@@ -75,11 +75,11 @@ function inserir(){
     morada: morada,
     telemovel: telemovel,
     datanascimento: datanasc,
-    idtipo: tipo
+    tipo: tipo
 }
 
 //transformar o obgjeto em JSON
-let objetoJSON = JSON.stringify(obj)
+let objetoJSON = JSON.stringify(objeto)
 //preparar as opçoes do pedido
 const options = {
     method:'POST',
@@ -89,7 +89,7 @@ const options = {
     boddy: objetoJSON
 }
 //fazer fetch com as opçoes acima definidas
-fetch('http://localhost:3006/inserirAlunos',options)
+fetch('http://localhost:3000/inserirAlunos',options)
 .then(res => res.text())
 .then(text =>{
     alert(text)
