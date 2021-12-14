@@ -66,22 +66,35 @@ function inserir(){
     let telemovel = document.getElementById('telemovel').value
     let datanasc = document.getElementById('datanasc').value
     let idtipo = document.getElementById('idtipo').value
-    let password = document.getElementById('password').value
 
-    let objeto ={
-        nome_completo:nome,
-        morada:morada,
-        datanascimento:datanasc,
-        telemovel:telemovel,
-        emai:email,
-        passoword:password,
-        idtipo:idtipo
-
-
-    }
-
-    let objetoJSON = JSON.stringify(objeto)
-    console.log(objetoJSON)
-
+   //criar um objeto com os valores
+   let objeto ={
+    nome: nome,
+    email: email,
+    username: username,
+    morada: morada,
+    telemovel: telemovel,
+    datanascimento: datanasc,
+    idtipo: tipo
 }
 
+//transformar o obgjeto em JSON
+let objetoJSON = JSON.stringify(obj)
+//preparar as opçoes do pedido
+const options = {
+    method:'POST',
+    Headers: {
+        'Content-type': 'application/json'
+    },
+    boddy: objetoJSON
+}
+//fazer fetch com as opçoes acima definidas
+fetch('http://localhost:3006/inserirAlunos',options)
+.then(res => res.text())
+.then(text =>{
+    alert(text)
+})
+.catch((err)=>{
+    alert('Ocorreu um erro no pedido...')
+})
+}
