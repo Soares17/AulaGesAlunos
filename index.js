@@ -37,7 +37,6 @@ app.get('/tipos', function(req, res) {
             console.log('Erro: ' + err);
             throw err;
         }else{
-            console.log(result)
             res.json(result);
         }
     })

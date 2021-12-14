@@ -11,13 +11,12 @@
 </head>
 <body onload="initForm()">
   <div id="nbar">
-
   </div>
 
       <div class="container">
       <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-4">
-          <label for="validationCustom01" class="form-label">Primeiro Nome</label>
+          <label for="validationCustom01" class="form-label">Nome</label>
           <input type="text" class="form-control" id="validationCustom01" value="" required>
           <div class="valid-feedback">
             Looks good!
@@ -49,12 +48,9 @@
         </div>
         <div class="col-md-4">
           <label for="validationCustom04" class="form-label" >Turmas</label>
-          <select class="form-select" id="validationCustom04" required id="tipo">
-            <option selected disabled value="">Escolha uma turma...</option>
+          <select class="form-select" id="tipo">
+            <option>...</option>
           </select>
-          <div class="invalid-feedback">
-            Please select a valid state.
-        </div>
         </div>
         <div class="col-md-4">
           <label for="validationCustom05" class="form-label">Telemóvel</label>
@@ -85,7 +81,7 @@
           </div>
         </div>
         <div class="col-12">
-          <button class="btn btn-primary" type="submit">Confirmar</button>
+          <button onclick="inserir()" class="btn btn-primary" type="button">Confirmar</button>
         </div>
       </form>
     </div>

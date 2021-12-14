@@ -26,6 +26,11 @@ function getData(data){
             }
     }*/
 
+function initForm(){
+    getNavbar();
+    getTipos(); 
+}
+
 function getNavbar(){
     const nbar = document.getElementById('nbar')
     fetch('http://localhost:3000/navbar')
@@ -41,16 +46,42 @@ function getNavbar(){
 function getTipos(){
     const tipo = document.getElementById('tipo')
     fetch('http://localhost:3000/tipos')
-    .then(res => res.text())
-    .then((html)=>{
-        nbar.innerHTML += html
+    .then(res => res.json())
+    .then(data => {
+        for (i in data) {
+            let op = `<option value=${data[i].idtipo}>${data[i].nometipo}</option>`
+            tipo.innerHTML += op
+        }
     })
     .catch(function(err){
-        alert('Ocorreu um problema...')
+        alert('Erro no pedido...')
     })
 }
 
-function initForm(){
-    getNavbar();
-    getTipos(); 
+function inserir(){
+    let nome = document.getElementById('nome').value
+    let email = document.getElementById('email').value
+    let username = document.getElementById('username').value
+    let morada = document.getElementById('morada').value
+    let telemovel = document.getElementById('telemovel').value
+    let datanasc = document.getElementById('datanasc').value
+    let idtipo = document.getElementById('idtipo').value
+    let password = document.getElementById('password').value
+
+    let objeto ={
+        nome_completo:nome,
+        morada:morada,
+        datanascimento:datanasc,
+        telemovel:telemovel,
+        emai:email,
+        passoword:password,
+        idtipo:idtipo
+
+
+    }
+
+    let objetoJSON = JSON.stringify(objeto)
+    console.log(objetoJSON)
+
 }
+
